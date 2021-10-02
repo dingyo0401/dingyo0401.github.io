@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>test web page</title>
+</head>
+<body>
+<button type="button" id="send" onclick="$(this).attr('disabled', true);window.setTimeout(setDisabled, 10000);setstr(10);" >送出<span id="str"></span></button>
+</body>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<script>
+function setDisabled() {
+document.getElementById('send').disabled = false;
+}
+ 
+function setstr(s) {
+document.getElementById("str").innerHTML=s;
+s -= 1;
+if(s>=0){
+setTimeout(setstr,1000,s);
+}else{document.getElementById("str").innerHTML='';}
+}
+ 
+</script>
+</html>
